@@ -3,15 +3,12 @@ package org.example;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="alien_table") //to change the name of the table in database
 public class Alien {
     @Id
     private int aid;
-    @Column(name="alien_name") // to change the coloumn name in database
     private String aname;
-
-    @Transient
     private String tech;
+    private Laptop laptop;
     public int getAid() {
         return aid;
     }
@@ -36,6 +33,13 @@ public class Alien {
         this.tech = tech;
     }
 
+    public Laptop getLaptop() {
+        return laptop;
+    }
+
+    public void setLaptop(Laptop laptop) {
+        this.laptop = laptop;
+    }
 
     @Override
     public String toString() {
@@ -43,7 +47,7 @@ public class Alien {
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
+                ", laptop=" + laptop +
                 '}';
     }
-
 }
