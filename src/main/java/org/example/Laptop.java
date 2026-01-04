@@ -1,13 +1,25 @@
 package org.example;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-@Embeddable
+@Entity
 public class Laptop {
 
     private String brand;
     private String model;
     private int ram;
+    @Id
+    private int lid;
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
+    }
 
     public String getBrand() {
         return brand;
@@ -39,6 +51,7 @@ public class Laptop {
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", ram=" + ram +
+                ", lid=" + lid +
                 '}';
     }
 }
